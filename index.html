@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>加密</title>
+	<!-- rsa加密js -->
+    <script src="./jsencrypt.js" type="text/javascript"></script>
+	<!-- md5加密js -->
+	<script src="./md5.min.js" type="text/javascript"></script>
+	<script>
+		
+		/**
+		 * 获取指定位数的数字、大小写字母随机字符串
+		 * @param {Number} n
+		 */
+		function generateMixed(n) {
+		  const chars = [
+		    '0','1','2','3','4','5','6','7','8','9',
+		    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+		    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
+		    ]
+		  var result = ''
+		  for(var i = 0; i < n ; i ++) {
+		    var id = Math.ceil(Math.random()*61)
+		    result += chars[id]
+		  }
+		  return result
+		}
+		
+		/**
+		 * 加密原数据, 随机字符串以时间戳
+		 */
+		function getSourceJson() {
+		  const jsonObject = {
+		    nonce_str: generateMixed(64),
+		    timestamp: '' + new Date().getTime()
+		  }
+		  return JSON.stringify(jsonObject)
+		}
+		
+		/**
+		 * 获取Rsa对称加密字符串
+		 */
+		function getRsaEncode(source) {
+		  // 公钥，不能随便改
+		  let key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8UiRwys332ZVeTrHiwD302NczALT8b9m4CpknK50ReX0TV0y5fbfllFlRSfB9WKBSwlOmVyB9AtTVSFwWXACiJm+IAUMY+piOg2JIOGMOlQPoTgky7hgZOtdhKfR2mRl7gLcvsNQQHF4T1CTVCI0pw7v5OgQoOOBBxp5ODJkqKwIDAQAB"
+		  let jsEncrypt = new JSEncrypt()
+		  jsEncrypt.setPublicKey(key)
+		  return jsEncrypt.encrypt(source)
+		}
+		
+		/**
+		 * 获取随机64字符串MD5加密字符串
+		 */
+		function getMd5Encode(source) {
+		  return md5(source)
+		}
+		
+		// 得出的密文在接口请求头传过去,两个参数
+		// key: ras加密密文
+		// sign: md5加密密文
+		const source = getSourceJson()
+		console.log('明文:', source)
+		console.log('ras加密密文:', getRsaEncode(source))
+		console.log('md5加密密文:', getMd5Encode(source))
+	</script>
+  </head>
+  <body>
+	<p>ras加密</p>
+    <p>md5加密</p>
+	
+  </body>
+</html>
