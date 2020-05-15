@@ -1,0 +1,1543 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>是否已点赞 · 博客API</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yaohw">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../comment/" />
+    
+    
+    <link rel="prev" href="cancel.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../install/">
+            
+                <a href="../../install/">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../../install/prepare.html">
+            
+                <a href="../../install/prepare.html">
+            
+                    
+                    准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../../install/config.html">
+            
+                <a href="../../install/config.html">
+            
+                    
+                    配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../../install/run.html">
+            
+                <a href="../../install/run.html">
+            
+                    
+                    运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    接口文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../sms.html">
+            
+                <a href="../sms.html">
+            
+                    
+                    发送验证码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../client/">
+            
+                <a href="../client/">
+            
+                    
+                    客户端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../client/save.html">
+            
+                <a href="../client/save.html">
+            
+                    
+                    保存客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../client/page.html">
+            
+                <a href="../client/page.html">
+            
+                    
+                    分页获取客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../client/delete.html">
+            
+                <a href="../client/delete.html">
+            
+                    
+                    删除客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../auth/">
+            
+                <a href="../auth/">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="../auth/account.html">
+            
+                <a href="../auth/account.html">
+            
+                    
+                    账号密码登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="../auth/mobile.html">
+            
+                <a href="../auth/mobile.html">
+            
+                    
+                    手机号验证码登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="../auth/refresh.html">
+            
+                <a href="../auth/refresh.html">
+            
+                    
+                    刷新access_token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="../auth/logout.html">
+            
+                <a href="../auth/logout.html">
+            
+                    
+                    退出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../user/">
+            
+                <a href="../user/">
+            
+                    
+                    用户
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="../user/info.html">
+            
+                <a href="../user/info.html">
+            
+                    
+                    获取用户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="../user/register.html">
+            
+                <a href="../user/register.html">
+            
+                    
+                    注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="../user/pwd-update.html">
+            
+                <a href="../user/pwd-update.html">
+            
+                    
+                    修改密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="../user/pwd-reset.html">
+            
+                <a href="../user/pwd-reset.html">
+            
+                    
+                    重置密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="../user/avatar-update.html">
+            
+                <a href="../user/avatar-update.html">
+            
+                    
+                    更换头像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="../user/update.html">
+            
+                <a href="../user/update.html">
+            
+                    
+                    更新用户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.7" data-path="../user/vemail.html">
+            
+                <a href="../user/vemail.html">
+            
+                    
+                    邮箱验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.8" data-path="../user/bemail.html">
+            
+                <a href="../user/bemail.html">
+            
+                    
+                    邮箱绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.9" data-path="../user/vmobile.html">
+            
+                <a href="../user/vmobile.html">
+            
+                    
+                    验证原手机号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.10" data-path="../user/bmobile.html">
+            
+                <a href="../user/bmobile.html">
+            
+                    
+                    绑定新手机号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.11" data-path="../user/page.html">
+            
+                <a href="../user/page.html">
+            
+                    
+                    分页获取用户
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.12" data-path="../user/status-update.html">
+            
+                <a href="../user/status-update.html">
+            
+                    
+                    用户状态修改
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../tag/">
+            
+                <a href="../tag/">
+            
+                    
+                    标签
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="../tag/add.html">
+            
+                <a href="../tag/add.html">
+            
+                    
+                    新增标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="../tag/page.html">
+            
+                <a href="../tag/page.html">
+            
+                    
+                    分页获取标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="../tag/list.html">
+            
+                <a href="../tag/list.html">
+            
+                    
+                    获取标签列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="../tag/update.html">
+            
+                <a href="../tag/update.html">
+            
+                    
+                    修改标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="../tag/delete.html">
+            
+                <a href="../tag/delete.html">
+            
+                    
+                    删除标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../category/">
+            
+                <a href="../category/">
+            
+                    
+                    分类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="../category/add.html">
+            
+                <a href="../category/add.html">
+            
+                    
+                    新增分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="../category/page.html">
+            
+                <a href="../category/page.html">
+            
+                    
+                    分页获取分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="../category/list.html">
+            
+                <a href="../category/list.html">
+            
+                    
+                    获取分类列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="../category/tree.html">
+            
+                <a href="../category/tree.html">
+            
+                    
+                    获取分类树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="../category/update.html">
+            
+                <a href="../category/update.html">
+            
+                    
+                    修改分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="../category/delete.html">
+            
+                <a href="../category/delete.html">
+            
+                    
+                    删除分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../file/">
+            
+                <a href="../file/">
+            
+                    
+                    文件存储
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="../file/upload.html">
+            
+                <a href="../file/upload.html">
+            
+                    
+                    上传文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="../file/delete.html">
+            
+                <a href="../file/delete.html">
+            
+                    
+                    删除文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../article/">
+            
+                <a href="../article/">
+            
+                    
+                    文章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="../article/save.html">
+            
+                <a href="../article/save.html">
+            
+                    
+                    保存文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="../article/page.html">
+            
+                <a href="../article/page.html">
+            
+                    
+                    分页获取文章（后台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="../article/detail.html">
+            
+                <a href="../article/detail.html">
+            
+                    
+                    文章详情（后台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="../article/f_page.html">
+            
+                <a href="../article/f_page.html">
+            
+                    
+                    分页获取文章（前台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="../article/view.html">
+            
+                <a href="../article/view.html">
+            
+                    
+                    文章详情（前台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="../article/incrt_view.html">
+            
+                <a href="../article/incrt_view.html">
+            
+                    
+                    文章浏览数自增
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.7" data-path="../article/interrelated.html">
+            
+                <a href="../article/interrelated.html">
+            
+                    
+                    相关文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.8" data-path="../article/discard.html">
+            
+                <a href="../article/discard.html">
+            
+                    
+                    丢弃文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.9" data-path="../article/delete.html">
+            
+                <a href="../article/delete.html">
+            
+                    
+                    删除文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.10" data-path="../article/status.html">
+            
+                <a href="../article/status.html">
+            
+                    
+                    修改文章状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.11" data-path="../article/archives.html">
+            
+                <a href="../article/archives.html">
+            
+                    
+                    文章归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.12" data-path="../article/tag_statistic.html">
+            
+                <a href="../article/tag_statistic.html">
+            
+                    
+                    标签文章统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.13" data-path="../article/c_statistic.html">
+            
+                <a href="../article/c_statistic.html">
+            
+                    
+                    分类文章统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../recommend/">
+            
+                <a href="../recommend/">
+            
+                    
+                    文章推荐
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="../recommend/save.html">
+            
+                <a href="../recommend/save.html">
+            
+                    
+                    保存到推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="../recommend/delete.html">
+            
+                <a href="../recommend/delete.html">
+            
+                    
+                    删除推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="../recommend/list.html">
+            
+                <a href="../recommend/list.html">
+            
+                    
+                    获取推荐列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    文章点赞
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="add.html">
+            
+                <a href="add.html">
+            
+                    
+                    新增点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="cancel.html">
+            
+                <a href="cancel.html">
+            
+                    
+                    取消点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.10.3" data-path="if.html">
+            
+                <a href="if.html">
+            
+                    
+                    是否已点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../comment/">
+            
+                <a href="../comment/">
+            
+                    
+                    文章评论与回复
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.11.1" data-path="../comment/c_add.html">
+            
+                <a href="../comment/c_add.html">
+            
+                    
+                    新增评论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.2" data-path="../comment/c_delete.html">
+            
+                <a href="../comment/c_delete.html">
+            
+                    
+                    删除评论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.3" data-path="../comment/r_add.html">
+            
+                <a href="../comment/r_add.html">
+            
+                    
+                    新增评论回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.4" data-path="../comment/r_delete.html">
+            
+                <a href="../comment/r_delete.html">
+            
+                    
+                    删除评论回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.5" data-path="../comment/page.html">
+            
+                <a href="../comment/page.html">
+            
+                    
+                    分页获取评论与回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.6" data-path="../comment/latest.html">
+            
+                <a href="../comment/latest.html">
+            
+                    
+                    最新评论列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../collect/">
+            
+                <a href="../collect/">
+            
+                    
+                    文章收藏
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.12.1" data-path="../collect/add.html">
+            
+                <a href="../collect/add.html">
+            
+                    
+                    新增收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.2" data-path="../collect/page.html">
+            
+                <a href="../collect/page.html">
+            
+                    
+                    分页获取收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.3" data-path="../collect/delete.html">
+            
+                <a href="../collect/delete.html">
+            
+                    
+                    删除收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.4" data-path="../collect/if.html">
+            
+                <a href="../collect/if.html">
+            
+                    
+                    是否已收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../message/">
+            
+                <a href="../message/">
+            
+                    
+                    留言与回复
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.13.1" data-path="../message/add.html">
+            
+                <a href="../message/add.html">
+            
+                    
+                    新增留言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.2" data-path="../message/r_add.html">
+            
+                <a href="../message/r_add.html">
+            
+                    
+                    新增留言回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.3" data-path="../message/page.html">
+            
+                <a href="../message/page.html">
+            
+                    
+                    分页回复留言与回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.4" data-path="../message/latest.html">
+            
+                <a href="../message/latest.html">
+            
+                    
+                    最新留言列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.5" data-path="../message/delete.html">
+            
+                <a href="../message/delete.html">
+            
+                    
+                    删除留言或回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../friend/">
+            
+                <a href="../friend/">
+            
+                    
+                    友链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.14.1" data-path="../friend/save.html">
+            
+                <a href="../friend/save.html">
+            
+                    
+                    保存友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.2" data-path="../friend/page.html">
+            
+                <a href="../friend/page.html">
+            
+                    
+                    分页获取友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.3" data-path="../friend/list.html">
+            
+                <a href="../friend/list.html">
+            
+                    
+                    友链列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.4" data-path="../friend/delete.html">
+            
+                <a href="../friend/delete.html">
+            
+                    
+                    删除友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../help/">
+            
+                <a href="../../help/">
+            
+                    
+                    帮助与反馈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <!--<li>-->
+        <!--<a href="https://www.gitbook.com" target="blank" class="gitbook-link">-->
+            <!--本书使用 GitBook 发布-->
+        <!--</a>-->
+    <!--</li>-->
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >是否已点赞</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x662F;&#x5426;&#x5DF2;&#x70B9;&#x8D5E;">&#x662F;&#x5426;&#x5DF2;&#x70B9;&#x8D5E;</h2>
+<p>&#x8BF7;&#x6C42;&#x65B9;&#x6CD5;&#xFF1A;<span style="color:#e96900">GET</span></p>
+<p>&#x8BF7;&#x6C42;&#x5730;&#x5740;&#xFF1A;<span style="color:#e96900">/article/like/liked/{articleId}</span></p>
+<p>&#x9700;&#x8981;access_token&#xFF1A; <span style="color:#e96900">&#x662F;</span></p>
+<p>&#x9700;&#x8981;&#x7BA1;&#x7406;&#x5458;&#x6743;&#x9650;&#xFF1A; <span style="color:#e96900">&#x5426;</span></p>
+
+<p>&#x63A5;&#x53E3;&#x8BF4;&#x660E;&#xFF1A;<span style="color:#e96900">&#x7528;&#x4E8E;&#x6587;&#x7AE0;&#x8BE6;&#x60C5;&#x5728;&#x767B;&#x5F55;&#x60C5;&#x51B5;&#x4E0B;&#x663E;&#x793A;&#x5F53;&#x524D;&#x7528;&#x6237;&#x662F;&#x5426;&#x5DF2;&#x5BF9;&#x5F53;&#x524D;&#x6587;&#x7AE0;&#x70B9;&#x8D5E;&#xFF1B;1:&#x662F;&#xFF0C;0:&#x5426;&#x3002;</span></p>
+
+<p>&#x83B7;&#x53D6;&#x6210;&#x529F;:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;code&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;&#x6210;&#x529F;&quot;</span>,
+  <span class="hljs-string">&quot;data&quot;</span>: <span class="hljs-number">1</span>
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="cancel.html" class="navigation navigation-prev " aria-label="Previous page: 取消点赞">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../comment/" class="navigation navigation-next " aria-label="Next page: 文章评论与回复">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"是否已点赞","level":"1.3.10.3","depth":3,"next":{"title":"文章评论与回复","level":"1.3.11","depth":2,"path":"api/comment/index.md","ref":"api/comment/index.md","articles":[{"title":"新增评论","level":"1.3.11.1","depth":3,"path":"api/comment/c_add.md","ref":"api/comment/c_add.md","articles":[]},{"title":"删除评论","level":"1.3.11.2","depth":3,"path":"api/comment/c_delete.md","ref":"api/comment/c_delete.md","articles":[]},{"title":"新增评论回复","level":"1.3.11.3","depth":3,"path":"api/comment/r_add.md","ref":"api/comment/r_add.md","articles":[]},{"title":"删除评论回复","level":"1.3.11.4","depth":3,"path":"api/comment/r_delete.md","ref":"api/comment/r_delete.md","articles":[]},{"title":"分页获取评论与回复","level":"1.3.11.5","depth":3,"path":"api/comment/page.md","ref":"api/comment/page.md","articles":[]},{"title":"最新评论列表","level":"1.3.11.6","depth":3,"path":"api/comment/latest.md","ref":"api/comment/latest.md","articles":[]}]},"previous":{"title":"取消点赞","level":"1.3.10.2","depth":3,"path":"api/like/cancel.md","ref":"api/like/cancel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["github","-sharing","splitter","expandable-chapters-small","code","flexible-alerts","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/copoile/blog-api.git"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yaohw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"博客API","language":"zh-hans","gitbook":"*","description":"介绍博客API系统及接口API详细介绍。"},"file":{"path":"api/like/if.md","mtime":"2020-01-09T02:44:36.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T07:20:49.599Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

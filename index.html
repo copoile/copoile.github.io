@@ -1,73 +1,1568 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>加密</title>
-	<!-- rsa加密js -->
-    <script src="./jsencrypt.js" type="text/javascript"></script>
-	<!-- md5加密js -->
-	<script src="./md5.min.js" type="text/javascript"></script>
-	<script>
-		
-		/**
-		 * 获取指定位数的数字、大小写字母随机字符串
-		 * @param {Number} n
-		 */
-		function generateMixed(n) {
-		  const chars = [
-		    '0','1','2','3','4','5','6','7','8','9',
-		    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-		    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'
-		    ]
-		  var result = ''
-		  for(var i = 0; i < n ; i ++) {
-		    var id = Math.ceil(Math.random()*61)
-		    result += chars[id]
-		  }
-		  return result
-		}
-		
-		/**
-		 * 加密原数据, 随机字符串以时间戳
-		 */
-		function getSourceJson() {
-		  const jsonObject = {
-		    nonce_str: generateMixed(64),
-		    timestamp: '' + new Date().getTime()
-		  }
-		  return JSON.stringify(jsonObject)
-		}
-		
-		/**
-		 * 获取Rsa对称加密字符串
-		 */
-		function getRsaEncode(source) {
-		  // 公钥，不能随便改
-		  let key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8UiRwys332ZVeTrHiwD302NczALT8b9m4CpknK50ReX0TV0y5fbfllFlRSfB9WKBSwlOmVyB9AtTVSFwWXACiJm+IAUMY+piOg2JIOGMOlQPoTgky7hgZOtdhKfR2mRl7gLcvsNQQHF4T1CTVCI0pw7v5OgQoOOBBxp5ODJkqKwIDAQAB"
-		  let jsEncrypt = new JSEncrypt()
-		  jsEncrypt.setPublicKey(key)
-		  return jsEncrypt.encrypt(source)
-		}
-		
-		/**
-		 * 获取随机64字符串MD5加密字符串
-		 */
-		function getMd5Encode(source) {
-		  return md5(source)
-		}
-		
-		// 得出的密文在接口请求头传过去,两个参数
-		// key: ras加密密文
-		// sign: md5加密密文
-		const source = getSourceJson()
-		console.log('明文:', source)
-		console.log('ras加密密文:', getRsaEncode(source))
-		console.log('md5加密密文:', getMd5Encode(source))
-	</script>
-  </head>
-  <body>
-	<p>ras加密</p>
-    <p>md5加密</p>
-	
-  </body>
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>简介 · 博客API</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="yaohw">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-lightbox/css/lightbox.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="install/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="install/">
+            
+                <a href="install/">
+            
+                    
+                    安装
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="install/prepare.html">
+            
+                <a href="install/prepare.html">
+            
+                    
+                    准备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="install/config.html">
+            
+                <a href="install/config.html">
+            
+                    
+                    配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="install/run.html">
+            
+                <a href="install/run.html">
+            
+                    
+                    运行
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="api/">
+            
+                <a href="api/">
+            
+                    
+                    接口文档
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="api/sms.html">
+            
+                <a href="api/sms.html">
+            
+                    
+                    发送验证码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="api/client/">
+            
+                <a href="api/client/">
+            
+                    
+                    客户端
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="api/client/save.html">
+            
+                <a href="api/client/save.html">
+            
+                    
+                    保存客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="api/client/page.html">
+            
+                <a href="api/client/page.html">
+            
+                    
+                    分页获取客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="api/client/delete.html">
+            
+                <a href="api/client/delete.html">
+            
+                    
+                    删除客户端
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="api/auth/">
+            
+                <a href="api/auth/">
+            
+                    
+                    认证
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.3.1" data-path="api/auth/account.html">
+            
+                <a href="api/auth/account.html">
+            
+                    
+                    账号密码登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.2" data-path="api/auth/mobile.html">
+            
+                <a href="api/auth/mobile.html">
+            
+                    
+                    手机号验证码登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.3" data-path="api/auth/refresh.html">
+            
+                <a href="api/auth/refresh.html">
+            
+                    
+                    刷新access_token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3.4" data-path="api/auth/logout.html">
+            
+                <a href="api/auth/logout.html">
+            
+                    
+                    退出
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="api/user/">
+            
+                <a href="api/user/">
+            
+                    
+                    用户
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.4.1" data-path="api/user/info.html">
+            
+                <a href="api/user/info.html">
+            
+                    
+                    获取用户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.2" data-path="api/user/register.html">
+            
+                <a href="api/user/register.html">
+            
+                    
+                    注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.3" data-path="api/user/pwd-update.html">
+            
+                <a href="api/user/pwd-update.html">
+            
+                    
+                    修改密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.4" data-path="api/user/pwd-reset.html">
+            
+                <a href="api/user/pwd-reset.html">
+            
+                    
+                    重置密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.5" data-path="api/user/avatar-update.html">
+            
+                <a href="api/user/avatar-update.html">
+            
+                    
+                    更换头像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.6" data-path="api/user/update.html">
+            
+                <a href="api/user/update.html">
+            
+                    
+                    更新用户信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.7" data-path="api/user/vemail.html">
+            
+                <a href="api/user/vemail.html">
+            
+                    
+                    邮箱验证
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.8" data-path="api/user/bemail.html">
+            
+                <a href="api/user/bemail.html">
+            
+                    
+                    邮箱绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.9" data-path="api/user/vmobile.html">
+            
+                <a href="api/user/vmobile.html">
+            
+                    
+                    验证原手机号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.10" data-path="api/user/bmobile.html">
+            
+                <a href="api/user/bmobile.html">
+            
+                    
+                    绑定新手机号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.11" data-path="api/user/page.html">
+            
+                <a href="api/user/page.html">
+            
+                    
+                    分页获取用户
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4.12" data-path="api/user/status-update.html">
+            
+                <a href="api/user/status-update.html">
+            
+                    
+                    用户状态修改
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="api/tag/">
+            
+                <a href="api/tag/">
+            
+                    
+                    标签
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.5.1" data-path="api/tag/add.html">
+            
+                <a href="api/tag/add.html">
+            
+                    
+                    新增标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.2" data-path="api/tag/page.html">
+            
+                <a href="api/tag/page.html">
+            
+                    
+                    分页获取标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.3" data-path="api/tag/list.html">
+            
+                <a href="api/tag/list.html">
+            
+                    
+                    获取标签列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.4" data-path="api/tag/update.html">
+            
+                <a href="api/tag/update.html">
+            
+                    
+                    修改标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5.5" data-path="api/tag/delete.html">
+            
+                <a href="api/tag/delete.html">
+            
+                    
+                    删除标签
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="api/category/">
+            
+                <a href="api/category/">
+            
+                    
+                    分类
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.6.1" data-path="api/category/add.html">
+            
+                <a href="api/category/add.html">
+            
+                    
+                    新增分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.2" data-path="api/category/page.html">
+            
+                <a href="api/category/page.html">
+            
+                    
+                    分页获取分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.3" data-path="api/category/list.html">
+            
+                <a href="api/category/list.html">
+            
+                    
+                    获取分类列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.4" data-path="api/category/tree.html">
+            
+                <a href="api/category/tree.html">
+            
+                    
+                    获取分类树
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.5" data-path="api/category/update.html">
+            
+                <a href="api/category/update.html">
+            
+                    
+                    修改分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6.6" data-path="api/category/delete.html">
+            
+                <a href="api/category/delete.html">
+            
+                    
+                    删除分类
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="api/file/">
+            
+                <a href="api/file/">
+            
+                    
+                    文件存储
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.7.1" data-path="api/file/upload.html">
+            
+                <a href="api/file/upload.html">
+            
+                    
+                    上传文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7.2" data-path="api/file/delete.html">
+            
+                <a href="api/file/delete.html">
+            
+                    
+                    删除文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="api/article/">
+            
+                <a href="api/article/">
+            
+                    
+                    文章
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.8.1" data-path="api/article/save.html">
+            
+                <a href="api/article/save.html">
+            
+                    
+                    保存文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.2" data-path="api/article/page.html">
+            
+                <a href="api/article/page.html">
+            
+                    
+                    分页获取文章（后台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.3" data-path="api/article/detail.html">
+            
+                <a href="api/article/detail.html">
+            
+                    
+                    文章详情（后台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.4" data-path="api/article/f_page.html">
+            
+                <a href="api/article/f_page.html">
+            
+                    
+                    分页获取文章（前台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.5" data-path="api/article/view.html">
+            
+                <a href="api/article/view.html">
+            
+                    
+                    文章详情（前台）
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.6" data-path="api/article/incrt_view.html">
+            
+                <a href="api/article/incrt_view.html">
+            
+                    
+                    文章浏览数自增
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.7" data-path="api/article/interrelated.html">
+            
+                <a href="api/article/interrelated.html">
+            
+                    
+                    相关文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.8" data-path="api/article/discard.html">
+            
+                <a href="api/article/discard.html">
+            
+                    
+                    丢弃文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.9" data-path="api/article/delete.html">
+            
+                <a href="api/article/delete.html">
+            
+                    
+                    删除文章
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.10" data-path="api/article/status.html">
+            
+                <a href="api/article/status.html">
+            
+                    
+                    修改文章状态
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.11" data-path="api/article/archives.html">
+            
+                <a href="api/article/archives.html">
+            
+                    
+                    文章归档
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.12" data-path="api/article/tag_statistic.html">
+            
+                <a href="api/article/tag_statistic.html">
+            
+                    
+                    标签文章统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8.13" data-path="api/article/c_statistic.html">
+            
+                <a href="api/article/c_statistic.html">
+            
+                    
+                    分类文章统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="api/recommend/">
+            
+                <a href="api/recommend/">
+            
+                    
+                    文章推荐
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.9.1" data-path="api/recommend/save.html">
+            
+                <a href="api/recommend/save.html">
+            
+                    
+                    保存到推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.2" data-path="api/recommend/delete.html">
+            
+                <a href="api/recommend/delete.html">
+            
+                    
+                    删除推荐
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9.3" data-path="api/recommend/list.html">
+            
+                <a href="api/recommend/list.html">
+            
+                    
+                    获取推荐列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="api/like/">
+            
+                <a href="api/like/">
+            
+                    
+                    文章点赞
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.10.1" data-path="api/like/add.html">
+            
+                <a href="api/like/add.html">
+            
+                    
+                    新增点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.2" data-path="api/like/cancel.html">
+            
+                <a href="api/like/cancel.html">
+            
+                    
+                    取消点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10.3" data-path="api/like/if.html">
+            
+                <a href="api/like/if.html">
+            
+                    
+                    是否已点赞
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="api/comment/">
+            
+                <a href="api/comment/">
+            
+                    
+                    文章评论与回复
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.11.1" data-path="api/comment/c_add.html">
+            
+                <a href="api/comment/c_add.html">
+            
+                    
+                    新增评论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.2" data-path="api/comment/c_delete.html">
+            
+                <a href="api/comment/c_delete.html">
+            
+                    
+                    删除评论
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.3" data-path="api/comment/r_add.html">
+            
+                <a href="api/comment/r_add.html">
+            
+                    
+                    新增评论回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.4" data-path="api/comment/r_delete.html">
+            
+                <a href="api/comment/r_delete.html">
+            
+                    
+                    删除评论回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.5" data-path="api/comment/page.html">
+            
+                <a href="api/comment/page.html">
+            
+                    
+                    分页获取评论与回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11.6" data-path="api/comment/latest.html">
+            
+                <a href="api/comment/latest.html">
+            
+                    
+                    最新评论列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="api/collect/">
+            
+                <a href="api/collect/">
+            
+                    
+                    文章收藏
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.12.1" data-path="api/collect/add.html">
+            
+                <a href="api/collect/add.html">
+            
+                    
+                    新增收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.2" data-path="api/collect/page.html">
+            
+                <a href="api/collect/page.html">
+            
+                    
+                    分页获取收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.3" data-path="api/collect/delete.html">
+            
+                <a href="api/collect/delete.html">
+            
+                    
+                    删除收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12.4" data-path="api/collect/if.html">
+            
+                <a href="api/collect/if.html">
+            
+                    
+                    是否已收藏
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="api/message/">
+            
+                <a href="api/message/">
+            
+                    
+                    留言与回复
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.13.1" data-path="api/message/add.html">
+            
+                <a href="api/message/add.html">
+            
+                    
+                    新增留言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.2" data-path="api/message/r_add.html">
+            
+                <a href="api/message/r_add.html">
+            
+                    
+                    新增留言回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.3" data-path="api/message/page.html">
+            
+                <a href="api/message/page.html">
+            
+                    
+                    分页回复留言与回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.4" data-path="api/message/latest.html">
+            
+                <a href="api/message/latest.html">
+            
+                    
+                    最新留言列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13.5" data-path="api/message/delete.html">
+            
+                <a href="api/message/delete.html">
+            
+                    
+                    删除留言或回复
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="api/friend/">
+            
+                <a href="api/friend/">
+            
+                    
+                    友链
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.14.1" data-path="api/friend/save.html">
+            
+                <a href="api/friend/save.html">
+            
+                    
+                    保存友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.2" data-path="api/friend/page.html">
+            
+                <a href="api/friend/page.html">
+            
+                    
+                    分页获取友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.3" data-path="api/friend/list.html">
+            
+                <a href="api/friend/list.html">
+            
+                    
+                    友链列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14.4" data-path="api/friend/delete.html">
+            
+                <a href="api/friend/delete.html">
+            
+                    
+                    删除友链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="help/">
+            
+                <a href="help/">
+            
+                    
+                    帮助与反馈
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <!--<li>-->
+        <!--<a href="https://www.gitbook.com" target="blank" class="gitbook-link">-->
+            <!--本书使用 GitBook 发布-->
+        <!--</a>-->
+    <!--</li>-->
+</ul>
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >简介</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x535A;&#x5BA2;api&#x4E2D;&#x6587;&#x7248;">&#x535A;&#x5BA2;API&#x4E2D;&#x6587;&#x7248;</h1>
+<h2 id="&#x524D;&#x8A00;">&#x524D;&#x8A00;</h2>
+<p>&#x505A;&#x5F00;&#x53D1;&#x4E5F;&#x6709;&#x633A;&#x957F;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x4E86;&#xFF0C;&#x90FD;&#x633A;&#x5FD9;&#x7684;&#xFF0C;&#x5E73;&#x65F6;&#x4E5F;&#x4F1A;&#x770B;&#x4E9B;&#x4E66;&#xFF0C;&#x6216;&#x8005;&#x505A;&#x4E00;&#x4E9B;&#x7B14;&#x8BB0;&#xFF0C;&#x6709;&#x65F6;&#x95F4;&#x5C31;&#x901B;&#x901B;Github&#xFF0C;&#x5237;&#x5237;&#x6398;&#x91D1;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x770B;&#x770B;&#x522B;&#x4EBA;&#x7684;&#x89C1;&#x89E3;&#xFF0C;&#x6DA8;&#x6DA8;&#x89C1;&#x8BC6;&#xFF0C;&#x770B;&#x5230;&#x597D;&#x7684;&#x6587;&#x7AE0;&#x4E5F;&#x4F1A;&#x9009;&#x62E9;&#x6536;&#x85CF;&#x8D77;&#x6765;&#x3002;&#x9010;&#x6E10;&#x5730;&#xFF0C;&#x6211;&#x4E5F;&#x610F;&#x8BC6;&#x5230;&#x81EA;&#x5DF1;&#x4E5F;&#x8BE5;&#x5199;&#x5199;&#x603B;&#x7ED3;&#xFF0C;&#x5199;&#x5199;&#x4E00;&#x4E9B;&#x81EA;&#x5DF1;&#x7684;&#x60F3;&#x6CD5;&#x4E86;&#x3002;&#x7A0D;&#x52A0;&#x601D;&#x7D22;&#x540E;&#xFF0C;&#x51B7;&#x9759;&#x8BC6;&#x7834;&#x3002;&#x4E8E;&#x662F;&#x51B3;&#x5B9A;&#x81EA;&#x5DF1;&#x5199;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;API&#x7CFB;&#x7EDF;&#xFF0C;&#x81F3;&#x4E8E;&#x4E3A;&#x5565;&#x662F;&#x535A;&#x5BA2;API&#x7CFB;&#x7EDF;&#x800C;&#x4E0D;&#x662F;&#x535A;&#x5BA2;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x662F;&#x57FA;&#x4E8E;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#x7684;&#x8003;&#x8651;&#xFF1A;&#x4E00;&#x662F;&#x535A;&#x5BA2;API&#x662F;&#x63D0;&#x4F9B;&#x535A;&#x5BA2;&#x63A5;&#x53E3;&#xFF0C;&#x524D;&#x7AEF;&#x9875;&#x9762;&#x53EF;&#x53E6;&#x5916;&#x5199;&#xFF0C;&#x9875;&#x9762;&#x8BBE;&#x8BA1;&#x3001;&#x98CE;&#x683C;&#x53EF;&#x81EA;&#x7531;&#x53D1;&#x6325;&#xFF0C;&#x4E0D;&#x5F3A;&#x4F9D;&#x8D56;&#x540E;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5373;&#x4FBF;&#x4E0D;&#x4F1A;&#x540E;&#x53F0;&#x7684;&#x4F19;&#x4F34;&#x4E5F;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x535A;&#x5BA2;API&#x81EA;&#x5DF1;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5DF1;&#x5FC3;&#x4EEA;&#x7684;&#x535A;&#x5BA2;&#x3002;&#x4E8C;&#x662F;&#x4E2A;&#x4EBA;&#x5E73;&#x65F6;&#x5F00;&#x53D1;&#x4E5F;&#x5927;&#x90FD;&#x662F;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x7684;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x559C;&#x6B22;&#x524D;&#x540E;&#x7AEF;&#x5206;&#x79BB;&#x7684;&#x8FD9;&#x79CD;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#x3002;
+<br>
+&#x51FA;&#x4E8E;&#x5BF9;&#x5F00;&#x6E90;&#x793E;&#x533A;&#x7684;&#x656C;&#x610F;&#xFF0C;&#x5C06;&#x9879;&#x76EE;&#x5F00;&#x6E90;&#x51FA;&#x6765;&#x5927;&#x5BB6;&#x5171;&#x540C;&#x5B66;&#x4E60;&#xFF0C;&#x5E0C;&#x671B;&#x5BF9;&#x5927;&#x5BB6;&#x6709;&#x6240;&#x5E2E;&#x52A9;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x672C;&#x4EBA;&#x6C34;&#x5E73;&#x6709;&#x9650;&#xFF0C;&#x4E5F;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x6307;&#x51FA;&#x5B58;&#x5728;&#x7684;&#x7F3A;&#x9677;&#x6216;&#x4E0D;&#x4E25;&#x8C28;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<blockquote>
+<p>[!TIP]
+&#x524D;&#x7AEF;&#x9879;&#x76EE;&#x5730;&#x5740;&#xFF1A;<a href="https://github.com/copoile/blog-web.git" target="_blank">https://github.com/copoile/blog-web.git</a></p>
+</blockquote>
+<h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x9879;&#x76EE;&#x4E3A;java&#x8BED;&#x8A00;&#x7F16;&#x5199;&#x7684;&#x4E00;&#x4E2A;&#x535A;&#x5BA2;API&#x7CFB;&#x7EDF;&#xFF0C;&#x4E0A;&#x624B;&#x7B80;&#x5355;&#xFF0C;&#x914D;&#x7F6E;&#x7075;&#x6D3B;&#xFF0C;&#x6709;&#x5B8C;&#x6574;&#x7684;&#x63A5;&#x53E3;&#x8BF4;&#x660E;&#x6587;&#x6863;&#xFF0C;&#x63A5;&#x53E3;&#x4E30;&#x5BCC;&#xFF0C;&#x63A5;&#x53E3;&#x5177;&#x5907;&#x8BA4;&#x8BC1;&#x6388;&#x6743;&#x3001;&#x9274;&#x6743;&#x3001;&#x53C2;&#x6570;&#x6821;&#x9A8C;&#x3001;&#x9650;&#x6D41;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x8BA4;&#x8BC1;&#x65B9;&#x5F0F;&#x91C7;&#x7528;token&#x8BA4;&#x8BC1;&#x65B9;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x533A;&#x5206;&#x5BA2;&#x6237;&#x7AEF;&#x3002;
+&#x70ED;&#x70B9;&#x6570;&#x636E;&#x4F7F;&#x7528;redis&#x7F13;&#x5B58;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x4F7F;&#x7528;mysql&#x3002;&#x9879;&#x76EE;&#x63A5;&#x5165;&#x7B2C;&#x4E09;&#x65B9;&#x963F;&#x91CC;&#x4E91;&#x77ED;&#x4FE1;&#x670D;&#x52A1;&#xFF0C;&#x6B64;&#x670D;&#x52A1;&#x9700;&#x5230;&#x963F;&#x91CC;&#x4E91;&#x5E73;&#x53F0;&#x5F00;&#x901A;&#x3002;
+<br>
+&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x65B9;&#x9762;&#xFF0C;&#x9879;&#x76EE;&#x63D0;&#x4F9B;4&#x79CD;&#x9009;&#x62E9;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x3001;&#x963F;&#x91CC;&#x4E91;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x3001;&#x7F51;&#x6613;&#x4E91;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x3001;&#x4E03;&#x725B;&#x4E91;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#xFF0C;&#x81F3;&#x4E8E;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x770B;&#x4E2A;&#x4EBA;&#x7684;&#x9009;&#x62E9;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x672C;&#x5730;&#x5B58;&#x50A8;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x4EE3;&#x7406;&#xFF08;&#x5982;nginx&#xFF09;&#x8FDB;&#x884C;&#x8BFB;&#x53D6;,&#x8FD9;&#x4E48;&#x505A;&#x4E3B;&#x8981;&#x662F;&#x57FA;&#x4E8E;&#x4E24;&#x65B9;&#x9762;&#x7684;&#x8003;&#x8651;&#xFF0C;&#x4E00;&#x662F;tomcat&#x76F8;&#x5BF9;&#x5176;&#x4ED6;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x800C;&#x8A00;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x64C5;&#x957F;&#x8BFB;&#x53D6;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x3002;&#x4E8C;&#x662F;&#x524D;&#x7AEF;&#x9879;&#x76EE;&#x4E5F;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x524D;&#x7AEF;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;&#x4EE3;&#x7406;&#x8BFB;&#x53D6;&#x3002;
+<br></p>
+<blockquote>
+<p>[!TIP] 
+&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x6587;&#x4EF6;&#x5B58;&#x50A8;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5206;&#x62C5;&#x670D;&#x52A1;&#x5668;&#x5E26;&#x5BBD;&#x538B;&#x529B;&#x3002;&#x5C06;&#x8F83;&#x5927;&#x7684;&#x56FE;&#x7247;&#x6587;&#x4EF6;&#x653E;&#x5230;1MB&#x5E26;&#x5BBD;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#xFF0C;&#x8BFB;&#x53D6;&#x7684;&#x65F6;&#x5019;&#x4F60;&#x5C06;&#x4F53;&#x4F1A;&#x5230;&#x4EC0;&#x4E48;&#x53EB;&#x9F9F;&#x901F;&#x3002;</p>
+</blockquote>
+<h2 id="&#x6280;&#x672F;&#x67B6;&#x6784;">&#x6280;&#x672F;&#x67B6;&#x6784;</h2>
+<p>&#x91C7;&#x7528;SpringBoot2.0&#x3001;MyBatis-Plus&#x3001;Security&#x7B49;&#x6846;&#x67B6;&#x3002;</p>
+<h2 id="&#x529F;&#x80FD;">&#x529F;&#x80FD;</h2>
+<pre><code>- &#x8D26;&#x53F7;&#x6CE8;&#x518C;
+- &#x8D26;&#x53F7;&#x767B;&#x5F55; / &#x624B;&#x673A;&#x53F7;&#x767B;&#x5F55;
+- &#x4E2A;&#x4EBA;&#x4FE1;&#x606F;
+- &#x7ED1;&#x5B9A;&#x90AE;&#x7BB1; / &#x7ED1;&#x5B9A;&#x624B;&#x673A;&#x53F7;
+- &#x4FEE;&#x6539;&#x5BC6;&#x7801; / &#x91CD;&#x7F6E;&#x5BC6;&#x7801;
+- &#x6587;&#x7AE0;&#x7F16;&#x8F91;
+- &#x6587;&#x7AE0;&#x7BA1;&#x7406;
+- &#x6587;&#x7AE0;&#x63A8;&#x8350;
+- &#x7528;&#x6237;&#x7BA1;&#x7406;
+- &#x5206;&#x7C7B;&#x7BA1;&#x7406;
+- &#x6807;&#x7B7E;&#x7BA1;&#x7406;
+- &#x6536;&#x85CF;&#x7BA1;&#x7406;
+- &#x535A;&#x5BA2;&#x53CB;&#x94FE;
+- &#x5BA2;&#x6237;&#x7AEF;&#x7BA1;&#x7406;
+- &#x9996;&#x9875;
+- &#x5206;&#x7C7B;
+- &#x5F52;&#x6863;
+- &#x6807;&#x7B7E;
+- &#x53CB;&#x94FE;
+- &#x7559;&#x8A00;
+- &#x6587;&#x7AE0; / &#x6536;&#x85CF; / &#x70B9;&#x8D5E; / &#x8BC4;&#x8BBA; / &#x56DE;&#x590D; / &#x76F8;&#x5173;&#x63A8;&#x8350;
+- &#x5176;&#x4ED6;
+</code></pre><h2 id="&#x5F00;&#x6E90;&#x5730;&#x5740;">&#x5F00;&#x6E90;&#x5730;&#x5740;</h2>
+<p><a href="https://github.com/copoile/blog-api" target="_blank">https://github.com/copoile/blog-api</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="install/" class="navigation navigation-next navigation-unique" aria-label="Next page: 安装">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"简介","level":"1.1","depth":1,"next":{"title":"安装","level":"1.2","depth":1,"path":"install/index.md","ref":"install/index.md","articles":[{"title":"准备","level":"1.2.1","depth":2,"path":"install/prepare.md","ref":"install/prepare.md","articles":[]},{"title":"配置","level":"1.2.2","depth":2,"path":"install/config.md","ref":"install/config.md","articles":[]},{"title":"运行","level":"1.2.3","depth":2,"path":"install/run.md","ref":"install/run.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["github","-sharing","splitter","expandable-chapters-small","code","flexible-alerts","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/copoile/blog-api.git"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"sameUuid":false},"expandable-chapters-small":{},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"yaohw","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"博客API","language":"zh-hans","gitbook":"*","description":"介绍博客API系统及接口API详细介绍。"},"file":{"path":"README.md","mtime":"2020-04-21T02:47:49.804Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-05-15T07:20:49.599Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
 </html>
+
